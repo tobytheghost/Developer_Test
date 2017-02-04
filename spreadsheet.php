@@ -6,20 +6,25 @@
 <head>
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <script language="javascript" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/tablesorter/jquery-latest.js"></script> 
+<script type="text/javascript" src="/tablesorter/jquery.tablesorter.js"></script> 
 </head>
 <body>
-	<div id="infoBox">
-		
-	</div>
 	<div id="tableBox">
-		<table id="sheetTable">
+		<table id="sheetTable" class="tablesorter">
 			<thead id="sheetHead">
 			</thead>
 			<tbody id="sheetBody">
 			</tbody>
 		</table>
-		<table id="header-fixed"></table>
+	</div>
+	<div id="infoBox">
+		<div id="title">Currently Editing: <?php echo $_GET["id"] ?></div>
+		<div id="buttons">
+			<button class="functionButton" id="saveButton">Save</button>
+			<button class="functionButton" id="exportButton">Export</button>
+			<button class="functionButton" id="printButton">Print</button>
+		</div>
 	</div>
 </body>
 <script>
@@ -69,21 +74,11 @@
 			tdWidth = $(this).width();
 			$(this).width(tdWidth);
 		});
+		
+		$(document).ready(function() { 
+			$("#sheetTable").tablesorter();
+		}); 
 
-		var tableOffset = $("#sheetTable").offset().top;
-		var $header = $("#sheetHead").clone();
-		var $fixedHeader = $("#header-fixed").append($header);
-
-		$(window).bind("scroll", function() {
-			var offset = $(this).scrollTop();
-
-			if (offset >= tableOffset && $fixedHeader.is(":hidden")) {
-				$fixedHeader.show();
-			}
-			else if (offset < tableOffset) {
-				$fixedHeader.hide();
-			}
-		});
 	});
 	
 	$('th').each(function() {

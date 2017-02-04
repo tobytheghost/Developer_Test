@@ -17,7 +17,8 @@ td{
 }
 
 .rowNum{
-	border: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
 	background-color: lightgrey;
 	width: 20px;
 	min-height: 20px;
@@ -27,14 +28,14 @@ td{
 
 body{
 	margin: 0px;
+	font-family: calibri;
 }
 
-#tableBox{ 
-	width: 98%; 
+#tableBox{  
 	overflow-x:scroll;  
 	margin-left:27px; 
 	overflow-y:visible;
-	border-right: 1px solid black;
+	margin-top: 100px;
 }
 
 th{
@@ -57,4 +58,29 @@ th{
     position: fixed; 
     top: 0px; display:none;
     background-color:white;
+}
+
+#infobox{
+	height: 100px;
+    position: fixed;
+    top: 0;
+	background: white;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+#title{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: small;
+	height: 40px;
+	background: #37693d;
+    color: darkseagreen;
+	padding-top: 5px;
+}
+
+#buttons{
+	height: 55px;
+	background: #fefefe;
 }
